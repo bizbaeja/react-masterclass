@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 //interface 란 object shape 을 TS 에 설명해주는 TS의 개념
 //const x = (a:number, b:number) => a+b TS 에게 변수 ab의 타입을 설명해줬었다면,
@@ -24,6 +25,7 @@ interface CircleProps {
 }
 //bgcolor 가 CircleProps 임을 선언해준다.
 function Circle({ bgColor, borderColor, text = "기본 값" }: CircleProps) {
+  const [counter, setCounter] = useState();
   return (
     <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
       {text}
