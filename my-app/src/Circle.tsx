@@ -2,13 +2,33 @@ import styled from "styled-components";
 //interface 란 object shape 을 TS 에 설명해주는 TS의 개념
 //const x = (a:number, b:number) => a+b TS 에게 변수 ab의 타입을 설명해줬었다면,
 //interface NameProps{ attrs: type; } 이런식으로 설명해준다
+interface ContainerProps {
+  bgColor: string;
+  borderColor?: string;
+}
+const Container = styled.div<ContainerProps>`
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  background-color: ${(props) => props.bgColor};
+  border-radius: 100px;
+  border-color: 10px solid ${(props) => props.borderColor};
+`;
 
 interface CircleProps {
   bgColor: string;
+  borderColor?: string;
+  text?: string;
 }
-const Container = styled.div``;
-function Circle({ bgColor }: CircleProps) {
-  return <Container />;
+//bgcolor 가 CircleProps 임을 선언해준다.
+function Circle({ bgColor, borderColor, text = "기본 값" }: CircleProps) {
+  return (
+    <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
+      {text}
+    </Container>
+  );
 }
 
 export default Circle;
