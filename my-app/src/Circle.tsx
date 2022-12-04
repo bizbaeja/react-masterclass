@@ -25,7 +25,9 @@ interface CircleProps {
 }
 //bgcolor 가 CircleProps 임을 선언해준다.
 function Circle({ bgColor, borderColor, text = "기본 값" }: CircleProps) {
-  const [counter, setCounter] = useState();
+  // useState 의 초기값 타입이 될 수 있는 것을  아래와 같이 지정해준다.
+  const [counter, setCounter] = useState<number | string>(0);
+  setCounter("안녕하십니까 하하");
   return (
     <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
       {text}
