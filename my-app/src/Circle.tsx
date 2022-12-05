@@ -33,6 +33,6 @@ function Circle({ bgColor, borderColor, text = "기본 값" }: CircleProps) {
       {text}
     </Container>
   );
-}
+} //cba
 
 export default Circle;
