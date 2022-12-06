@@ -7,6 +7,6 @@ export const ligthTheme: DefaulTheme = {
 };
 export const darkTheme: DefaulTheme = {
   bgColor: "#000",
-  textColor: "tomato",
+  textColor: "whitesmoke",
   btnColor: "teal",
 };

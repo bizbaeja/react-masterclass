@@ -11,8 +11,7 @@ const Container = styled.div<ContainerProps>`
   box-sizing: border-box;
   padding: 10px;
   margin: 20px;
-  width: 200px;
-  height: 200px;
+
   background-color: ${(props) => props.bgColor};
   border-radius: 100px;
   border-color: 10px solid ${(props) => props.borderColor};
