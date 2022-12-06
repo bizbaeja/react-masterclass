@@ -1,7 +1,13 @@
 import Router from "./routes/Router";
+import * as React from "react";
+import { Switch } from "react-router";
 
-function App() {
-  return <Router />;
-}
+const App = (): JSX.Element => {
+  return (
+    <Switch>
+      <Router></Router>
+    </Switch>
+  );
+};
 
 export default App;
