@@ -5,6 +5,7 @@ import Root from "./Root";
 import NotFound from "./screens/NotFound";
 import ErrorComponent from "./screens/ErrorComponent";
 import User from "./screens/users/User";
+import Followers from "./screens/users/Followers";
 //전체 라우터들의 컨테이너
 
 const router = createBrowserRouter([
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Home />, errorElement: <ErrorComponent /> },
       { path: "about", element: <About /> },
-      { path: "users/:userId", element: <User /> },
+      {
+        path: "users/:userId",
+        element: <User />,
+        children: [{ path: "followers", element: <Followers /> }],
+      },
       { path: "users" },
     ],
     errorElement: <NotFound />,
