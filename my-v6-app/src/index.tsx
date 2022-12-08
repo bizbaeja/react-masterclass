@@ -1,13 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import App from "./Root";
-import router from "./Router";
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+import { Link, useNavigate } from "react-router-dom";
+function Header() {
+  const navigate = useNavigate();
+  const onAboutClick = () => {
+    navigate("/about");
+  };
+  return (
+    <header>
+      <ul>
+        <li>
+          <Link to={"/"}>Home</Link>
+        </li>
+        <li>
+          <button onClick={onAboutClick}>About</button>
+        </li>
+      </ul>
+    </header>
+  );
+}
+export default Header;
