@@ -145,6 +145,7 @@ ${({ theme }) => css`
   }
   a {
     text-decoration: none;
+    color: inherit;
   }
 `}
 `;
