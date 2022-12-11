@@ -1,13 +1,11 @@
-import Router from "./routes/Router";
-import * as React from "react";
-import { Switch } from "react-router";
+import Router from "../src/routes/Router";
 
-const App = (): JSX.Element => {
+const App: React.FC = () => {
   return (
-    <Switch>
-      <Router></Router>
-    </Switch>
+    <div>
+      <h1>App</h1>
+      <Router />
+    </div>
   );
 };
-
 export default App;
