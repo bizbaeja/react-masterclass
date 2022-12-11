@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 const Container = styled.div`
   padding: 0px 20px;
   max-width: 480px;
@@ -52,9 +53,11 @@ interface CoinInterface {
   is_active: boolean;
   type: string;
 }
+
 function Coins() {
   const [coins, setCoins] = useState<CoinInterface[]>([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     (async () => {
       const response = await fetch("https://api.coinpaprika.com/v1/coins");
@@ -75,7 +78,12 @@ function Coins() {
         <CoinLinst>
           {coins.map((coin) => (
             <Coin key={coin.id}>
-              <Link to={`/${coin.id}`}>
+              <Link
+                to={{
+                  pathname: `/${coin.id}`,
+                }}
+                state={{ name: coin.name }}
+              >
                 <Img
                   src={`https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/16/${coin.name
                     .toLowerCase()
