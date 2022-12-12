@@ -44,7 +44,7 @@ const OverviewItem = styled.div`
     margin-bottom: 5px;
   }
 `;
-const Decsription = styled.p`
+const Description = styled.p`
   margin: 20px 0px;
 `;
 
@@ -139,7 +139,7 @@ function Coin() {
         </Title>
       </Header>
       {loading ? (
-        <Loader>Loading</Loader>
+        <Loader>Loading...</Loader>
       ) : (
         <>
           <Overview>
@@ -153,15 +153,23 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>Open Source:</span>
-              <span>{info?.open_source ? "Yes" : "NO"}</span>
+              <span>{info?.open_source ? "Yes" : "No"}</span>
             </OverviewItem>
           </Overview>
-          <Decsription>
-            <span>Max Supply:</span>
-            <span>{priceInfo?.max_supply}</span>
-          </Decsription>
+          <Description>{info?.description}</Description>
+          <Overview>
+            <OverviewItem>
+              <span>Total Suply:</span>
+              <span>{priceInfo?.total_supply}</span>
+            </OverviewItem>
+            <OverviewItem>
+              <span>Max Supply:</span>
+              <span>{priceInfo?.max_supply}</span>
+            </OverviewItem>
+          </Overview>
           <Routes>
             <Route path="price" element={<Price />} />
+
             <Route path="chart" element={<Chart />} />
           </Routes>
         </>

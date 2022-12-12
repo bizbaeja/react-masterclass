@@ -1,4 +1,5 @@
-import Router from "../src/routes/Router";
+import React from "react";
+import Router from "./routes/Router";
 
 const App: React.FC = () => {
   return (
