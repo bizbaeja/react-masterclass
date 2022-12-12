@@ -44,6 +44,7 @@ const Img = styled.img`
   height: 35px;
   margin-right: 10px;
 `;
+
 interface CoinInterface {
   id: string;
   name: string;
