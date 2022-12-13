@@ -1,8 +1,9 @@
 import { createGlobalStyle, css } from "styled-components"; // 글로벌스타일을 정의해impo주자
-
+import { theme } from "./theme";
 export default createGlobalStyle` // 다른 컴포넌트에서도 공통으로 사용하도록 export 해주자
 ${({ theme }) => css`
   @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap");
+
   html,
   body,
   div,
@@ -145,6 +146,9 @@ ${({ theme }) => css`
   }
   a {
     text-decoration: none;
+    color: inherit;
+  }
+  li {
     color: inherit;
   }
 `}
