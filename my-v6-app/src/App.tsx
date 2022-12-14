@@ -1,11 +1,18 @@
-import Router from "./Router";
-
+import Coin from "../src/screens/Coin";
+import Coins from "../src/screens/Coins";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>App</h1>
-      <Router />
-    </div>
+    <BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={true} />
+      <Routes>
+        <Routes>
+          <Route path="/" element={<Coins />}></Route>
+          <Route path="/:coinId/*" element={<Coin />}></Route>
+        </Routes>
+      </Routes>
+    </BrowserRouter>
   );
 };
 export default App;
