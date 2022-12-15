@@ -7,10 +7,8 @@ const App: React.FC = () => {
     <BrowserRouter>
       <ReactQueryDevtools initialIsOpen={true} />
       <Routes>
-        <Routes>
-          <Route path="/" element={<Coins />}></Route>
-          <Route path="/:coinId/*" element={<Coin />}></Route>
-        </Routes>
+        <Route path="/" element={<Coins />}></Route>
+        <Route path="/:coinId/*" element={<Coin />}></Route>
       </Routes>
     </BrowserRouter>
   );
