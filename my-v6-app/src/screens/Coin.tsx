@@ -1,12 +1,19 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useLocation, useParams, Route, Routes, useMatch } from "react-router";
+import {
+  useLocation,
+  useParams,
+  useMatch,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router";
 import styled from "styled-components";
-import Chart from "./Chart";
-import Price from "./Price";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
+import Price from "./Price";
+import Chart from "./Chart";
 
 const Title = styled.h1`
   font-size: 48px;
@@ -208,18 +215,22 @@ function Coin() {
           </Overview>
           <Tabs>
             <Tab isActive={chartMatch !== null}>
-              <Link to={`/${coinId}/chart`}>Chart</Link>
+              <Link to={`/${coinId}/coin/chart`}>Chart</Link>
             </Tab>
             <Tab isActive={priceMatch !== null}>
-              <Link to={`/${coinId}/price`}>Price</Link>
+              <Link to={`/${coinId}/coin/price`}>Price</Link>
             </Tab>
           </Tabs>
+          <Outlet context={{ coinId, tikersData }} />
 
-          <Routes>
+          {/* <Routes>
             <Route path="price" element={<Price />} />
 
-            <Route path="chart" element={<Chart coinId={coinId} />} />
-          </Routes>
+            <Route
+              path="chart"
+              element={<Chart coinId={coinId} coinId2={coinId} />}
+            />
+          </Routes> */}
         </>
       )}
     </Container>
